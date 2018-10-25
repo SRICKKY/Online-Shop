@@ -1,0 +1,65 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+	Checkout
+{% endblock %}
+
+{% block content %}
+<h1>Checkout</h1>
+<div class="row">
+
+	<!-- Checkout Form -->
+	<div class="col-8">
+		<form action="." method="POST">
+			<div class="form group-row">
+				<div class="form-group row">
+				    <label for="{{ form.first_name.id_for_label }}" class="col-sm-2 col-form-label">First Name:</label>
+				    {{ form.first_name }}
+				</div>
+				<div class="form-group row">
+				    <label for="{{ form.last_name.id_for_label }}" class="col-sm-2 col-form-label">Last Name:</label>
+					{{ form.last_name }}
+				</div>
+				<div class="form-group row">
+				    <label for="{{ form.email.id_for_label }}" class="col-sm-2 col-form-label">Email:</label>
+					{{ form.email }}
+				</div>
+				<div class="form-group row">
+				    <label for="{{ form.email.id_for_label }}" class="col-sm-2 col-form-label">Moblie:</label>
+					{{ form.mobile }}
+				</div>
+				<div class="form-group row">
+				    <label for="{{ form.address.id_for_label }}" class="col-sm-2 col-form-label">Address:</label>
+					{{ form.address }}
+				</div>
+				<div class="form-group row">
+				    <label for="{{ form.postal_code.id_for_label }}" class="col-sm-2 col-form-label">Postal Code:</label>
+					{{ form.postal_code }}
+				</div>
+				<div class="form-group row">
+				    <label for="{{ form.city.id_for_label }}" class="col-sm-2 col-form-label">City:</label>
+					{{ form.city }}
+				</div>
+				<input type="submit" value="Place Order" class="btn btn-primary">
+			</div>
+			{% csrf_token %}
+		</form>
+	</div>
+	<!-- Checkout Form Ends Here -->
+	
+	<!-- Price Detail -->
+	<div class="col-3">
+		<h3>Order Details</h3>
+		<ul class="list-group" style="border-left: 5px solid #555;">
+			{% for item in cart %}
+				<li class="list-group-item">
+					{{ item.quantity }} &times; {{ item.product.name }}
+					<span><b>₹</b> {{ item.total_price }}</span>
+				</li>
+			{% endfor %}
+		</ul>
+		<p class="bg-info text-center">Total: <b>₹</b> {{ cart.get_total_price }}</p>
+	</div>
+	<!-- Price Details ends here -->
+</div>
+{% endblock %}

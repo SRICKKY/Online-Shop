@@ -1,0 +1,31 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}
+	{{ product.name }}
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-4">
+				<img src="
+					{% if product.image %}
+						{{ product.image.url }}
+					{% else %}
+						{% static "img/no_image.png" %}
+					{% endif %}"
+					style="width: 100%; margin-left: 5px;">
+		</div>
+		<div class="col-4">
+				<h1>{{ product.name }}</h1>
+				<small><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></small>
+				<p><b>₹</b> {{ product.price }}</p>
+				<form action="{% url 'cart:cart_add' product.id %}" method="POST">
+					{{ cart_product_form }}
+					{% csrf_token %}
+					<input type="submit" value="Add to cart" class="btn btn-primary btn-sm">
+				</form>
+				{{ product.description|linebreaks }}
+		</div>
+	</div>
+{% endblock %}
