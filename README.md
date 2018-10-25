@@ -19,4 +19,6 @@ Hi! Please follow these **Instructions** to get the app up and running.
 Some Usage Instruction
 
 >* Login to admin panel[after creating super user ]
->* Add some product in 
+>* Add some categories
+>* Add some product in those categories
+>* Now you are good to go. Browse http://localhost:8000/ 
