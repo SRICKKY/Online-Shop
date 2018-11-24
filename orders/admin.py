@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Order, OrderItem
+from .forms import OrderCreateForm
 
 # Register your models here.
 class OrderItemInline(admin.TabularInline):
@@ -8,6 +9,7 @@ class OrderItemInline(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
+	form = OrderCreateForm
 	list_display = ['id','first_name','last_name','email','mobile','address','postal_code','city','paid','delivered','created','updated']
 	list_filter = ['paid','created','updated','delivered']
 	# inlines = [OrderItemInline]
