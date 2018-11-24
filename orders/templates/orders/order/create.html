@@ -13,34 +13,27 @@
 		<form action="." method="POST">
 			<div class="form group-row">
 				<div class="form-group row">
-				    <label for="{{ form.first_name.id_for_label }}" class="col-sm-2 col-form-label">First Name:</label>
 				    {{ form.first_name }}
 				</div>
 				<div class="form-group row">
-				    <label for="{{ form.last_name.id_for_label }}" class="col-sm-2 col-form-label">Last Name:</label>
 					{{ form.last_name }}
 				</div>
 				<div class="form-group row">
-				    <label for="{{ form.email.id_for_label }}" class="col-sm-2 col-form-label">Email:</label>
 					{{ form.email }}
 				</div>
 				<div class="form-group row">
-				    <label for="{{ form.email.id_for_label }}" class="col-sm-2 col-form-label">Moblie:</label>
 					{{ form.mobile }}
 				</div>
 				<div class="form-group row">
-				    <label for="{{ form.address.id_for_label }}" class="col-sm-2 col-form-label">Address:</label>
-					{{ form.address }}
-				</div>
-				<div class="form-group row">
-				    <label for="{{ form.postal_code.id_for_label }}" class="col-sm-2 col-form-label">Postal Code:</label>
 					{{ form.postal_code }}
 				</div>
 				<div class="form-group row">
-				    <label for="{{ form.city.id_for_label }}" class="col-sm-2 col-form-label">City:</label>
 					{{ form.city }}
 				</div>
-				<input type="submit" value="Place Order" class="btn btn-primary">
+				<div class="form-group row">
+					{{ form.address }}
+				</div>
+				<input type="submit" value="Place Order" class="btn btn-secondary btn-lg btn-block">
 			</div>
 			{% csrf_token %}
 		</form>
