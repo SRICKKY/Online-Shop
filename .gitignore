@@ -4,9 +4,11 @@
 *.pyc
 __pycache__/
 local_settings.py
+.pytest_cache
 
 .env
 *.sqlite3
+*.ini
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
