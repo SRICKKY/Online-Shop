@@ -8,6 +8,6 @@ install:
   - python manage.py migrate
 # command to run tests
 script:
-  - pytest
+  - echo "Hello World!"
 env:
   - DJANGO_VERSION=2.1.2
