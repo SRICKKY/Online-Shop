@@ -17,8 +17,8 @@
 
             {% for c in categories %}
                 <li {% if category.slug == c.slug %}class="list-group-item"{% else %}class="list-group-item"{% endif %}>
-                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-                    <span class="badge badge-primary badge-pill">14</span>
+                    <a href="{{ c.get_absolute_url }}" class="text-secondary">{{ c.name }}</a>
+                    <span class="badge badge-info badge-pill">14</span>
                 </li>
             {% endfor %}
 
@@ -36,9 +36,9 @@
                       <img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="This is {{ product.name }}" class="card-img-top">
                     </a>
                     <div class="card-body">
-                        <a href="{{ product.get_absolute_url }}"><p style="margin:0; padding: 0;" class="text-center text-dark">{{ product.name|truncatewords:5 }}</p></a>
+                        <a href="{{ product.get_absolute_url }}"><p style="margin:0; padding: 0;" class="text-center text-dark">{{ product.name|slice:":50" }}</p></a>
                         <hr>
-                        <p class="text-center"><b>₹</b>{{ product.price }}</p>
+                        <p class="text-center text-seconday"><b>₹&nbsp;{{ product.price }}</b></p>
                     </div>
                 </div>
             {% endfor %}
