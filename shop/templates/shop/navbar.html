@@ -1,21 +1,48 @@
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-	<h5 class="my-0 mr-md-auto font-weight-normal">Selling</h5>
-	<nav class="my-2 my-md-0 mr-md-3">
+<nav class="site-header sticky-top py-1 bg-dark">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2 text-warning" href='{% url "shop:product_list" %}'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+    </a>
 		{% with total_items=cart|length %}
 			{% if cart|length > 0 %}
-				<a href="{% url 'cart:cart_detail' %}" class="text-info">
-					<span class="fa-stack fa-2x has-badge" data-count="{{ total_items }}">
+				<a href="{% url 'cart:cart_detail' %}" class="py-2 d-none d-md-inline-block">
+					<span class="fa-stack fa-1x has-badge" data-count="{{ total_items }}">
 					  <i style="" class="fa fa-shopping-cart"></i>
 					</span>
 				</a>
 			{% else %}
-				<a href="{% url 'cart:cart_detail' %}" class="text-info">
-					<span class="fa-stack has-badge" data-count="{{ total_items }}">
+				<a href="{% url 'cart:cart_detail' %}" class="py-2 d-none d-md-inline-block">
+					<span class="fa-stack fa-1x fa-circle has-badge" data-count="{{ total_items }}">
 					  <i style="" class="fa fa-shopping-cart"></i>
 					</span>
 				</a>
 			{% endif %}
 		{% endwith %}
-	</nav>
-</div>
+  </div>
+</nav>
+<style>
+.fa-stack[data-count]:after{
+  position:absolute;
+  right:0%;
+  top:0%;
+  content: attr(data-count);
+  font-size:60%;
+  padding:.6em;
+  border-radius:999px;
+  line-height:.75em;
+  color: white;
+  color:#333;
+  text-align:center;
+  min-width:2em;
+  font-weight:bold;
+  background: white;
+  border-style:solid;
+}
+.fa-circle {
+  color:#DF0000;
+}
+.red-cart {
+	color: #DF0000; background:white;
+}
+</style>
 
