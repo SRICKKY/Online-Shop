@@ -1,26 +1,21 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-  <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{% url "shop:product_list" %}">Shop</a></h5>
-  <nav class="my-2 my-md-0 mr-md-3">
-    <!-- <a class="btn btn-outline-primary" href="#">Your Cart</a> -->
-    <!-- <i class="fas fa-shopping-cart"></i> -->
-
-	{% with total_items=cart|length %}
-		{% if cart|length > 0 %}
-			<a href="{% url 'cart:cart_detail' %}" class="text-info">
-				<span class="fa-stack fa-2x has-badge" data-count="{{ total_items }}">
-				  <i style="" class="fa fa-shopping-cart"></i>
-				</span>
-			</a>
-		{% else %}
-			<a href="{% url 'cart:cart_detail' %}" class="text-info">
-				<span class="fa-stack fa-2x has-badge" data-count="{{ total_items }}">
-				  <i style="" class="fa fa-shopping-cart"></i>
-				</span>
-			</a>
-		{% endif %}
-	{% endwith %}
-  </nav>
-  
+	<h5 class="my-0 mr-md-auto font-weight-normal">Selling</h5>
+	<nav class="my-2 my-md-0 mr-md-3">
+		{% with total_items=cart|length %}
+			{% if cart|length > 0 %}
+				<a href="{% url 'cart:cart_detail' %}" class="text-info">
+					<span class="fa-stack fa-2x has-badge" data-count="{{ total_items }}">
+					  <i style="" class="fa fa-shopping-cart"></i>
+					</span>
+				</a>
+			{% else %}
+				<a href="{% url 'cart:cart_detail' %}" class="text-info">
+					<span class="fa-stack has-badge" data-count="{{ total_items }}">
+					  <i style="" class="fa fa-shopping-cart"></i>
+					</span>
+				</a>
+			{% endif %}
+		{% endwith %}
+	</nav>
 </div>
-<br>
 
