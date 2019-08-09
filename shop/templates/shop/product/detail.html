@@ -8,24 +8,47 @@
 {% block content %}
 	<div class="row">
 		<div class="col-4">
-				<img src="
+				<img src='
 					{% if product.image %}
 						{{ product.image.url }}
 					{% else %}
 						{% static "img/no_image.png" %}
-					{% endif %}"
-					style="width: 100%; margin-left: 5px;">
+					{% endif %}'
+					style="width: 100%;">
 		</div>
 		<div class="col-4">
-				<h1>{{ product.name }}</h1>
-				<small><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></small>
-				<p><b>₹</b> {{ product.price }}</p>
+			<div class="jumbotron jumbotron-fluid px-4 py-1">
+				<a href="{{ product.category.get_absolute_url }}" class="badge badge-success">
+					{{ product.category }}
+				</a>
+				<h5 class="dark">{{ product.name }}</h5>
+
+				<h6><b>₹</b> {{ product.price }}</h6>
+				<br>
+
 				<form action="{% url 'cart:cart_add' product.id %}" method="POST">
 					{{ cart_product_form }}
 					{% csrf_token %}
-					<input type="submit" value="Add to cart" class="btn btn-primary btn-sm">
+					<input type="submit" value="Add to cart" class="btn btn-sm btn-secondary">
 				</form>
-				{{ product.description|linebreaks }}
+				<div>
+					<div class="container">
+						<p class="lead">
+							{{ product.description|linebreaks }}
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 {% endblock %}
+<style>
+a {
+    color: #f4f4f4;
+    text-decoration: none;
+}
+a:hover {
+    color: #f4f4f4;
+    text-decoration: none;
+}
+</style>
