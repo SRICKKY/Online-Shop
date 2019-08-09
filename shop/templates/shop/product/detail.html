@@ -17,25 +17,28 @@
 					style="width: 100%;">
 		</div>
 		<div class="col-4">
-				<h5 class="dark">{{ product.name }}</h5>
+			<div class="jumbotron jumbotron-fluid px-4 py-1">
 				<a href="{{ product.category.get_absolute_url }}" class="badge badge-success">
 					{{ product.category }}
 				</a>
+				<h5 class="dark">{{ product.name }}</h5>
 
 				<h6><b>₹</b> {{ product.price }}</h6>
+				<br>
 
 				<form action="{% url 'cart:cart_add' product.id %}" method="POST">
 					{{ cart_product_form }}
 					{% csrf_token %}
-					<input type="submit" value="Add to cart" class="btn btn-primary btn-sm">
+					<input type="submit" value="Add to cart" class="btn btn-sm btn-secondary">
 				</form>
-				<div class="jumbotron jumbotron-fluid">
+				<div>
 					<div class="container">
 						<p class="lead">
 							{{ product.description|linebreaks }}
 						</p>
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
 {% endblock %}
