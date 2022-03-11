@@ -17,7 +17,7 @@ greenlet==0.4.15
 idna==2.7
 kombu==4.2.1
 more-itertools==6.0.0
-Pillow==5.3.0
+Pillow==9.0.1
 pluggy==0.8.1
 py==1.8.0
 Pygments==2.2.0
